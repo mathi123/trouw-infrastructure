@@ -44,7 +44,7 @@ redeployIfVersionMismatch(){
     else
         echo "\t\t${GREEN}↑${RESTORE} updating $1 image from $deployedImageTag to $latestImageTag"
         image="$registerBaseUrl/$projectName/$1:$latestImageTag"
-        kubectl set image deployment/$deploymentName cryptofolio-$1=$image
+        kubectl set image deployment/$deploymentName $1-container=$image
     fi
 }
 
@@ -113,7 +113,7 @@ createCluster(){
         echo "${RED}error: ${RESTORE}please provide a name for the cluster as second argument"
     else
         echo "creating cluster"
-        gcloud beta container --project "cryptofolio-183711" clusters create "$clusterName" --zone "us-central1-a" --username="admin" --cluster-version "1.7.8-gke.0" --machine-type "n1-standard-2" --image-type "COS" --disk-size "100" --scopes "https://www.googleapis.com/auth/compute","https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "4" --network "default" --enable-cloud-logging --enable-cloud-monitoring --subnetwork "default" --enable-legacy-authorization
+        gcloud beta container --project $projectName clusters create "$clusterName" --zone "us-central1-a" --username="admin" --cluster-version "1.7.8-gke.0" --machine-type "n1-standard-2" --image-type "COS" --disk-size "100" --scopes "https://www.googleapis.com/auth/compute","https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --num-nodes "4" --network "default" --enable-cloud-logging --enable-cloud-monitoring --subnetwork "default" --enable-legacy-authorization
         echo "${GREEN}Done${RESTORE}"
     fi
 }
