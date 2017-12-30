@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: rest-api-container
-        image: gcr.io/rest-api:ddaadcbccf0ad01e2cca762991f180bcec66fa2c
+        image: gcr.io/telefon-190611/rest-api:ddaadcbccf0ad01e2cca762991f180bcec66fa2c
         ports:
         - containerPort: 3000
         volumeMounts:
