@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    environment: production
+    tier: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        environment: production
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: gcr.io/telefon-190611/frontend:9f17f26bdae44f7e26b3393968c99be111918468
+        ports:
+        - containerPort: 80

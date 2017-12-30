@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rest-api-service
+spec:
+  selector:
+    name: rest-api
+  ports:
+  - protocol: TCP
+    port: 3000
+  type: LoadBalancer

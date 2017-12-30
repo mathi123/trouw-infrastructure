@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rest-api-deployment
+  labels:
+    name: rest-api
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: rest-api
+    spec:
+      containers:
+      - name: rest-api-container
+        image: gcr.io/telefon-190611/backend:5aa9596239842ada1edeca7a4c7a7c12f5ebb1b4
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - name: files
+            mountPath: /usr/app/public/files
+      volumes:
+        - name: files
+          gcePersistentDisk:
+            pdName: telefon-files
+            fsType: ext4
