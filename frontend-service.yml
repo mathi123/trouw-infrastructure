@@ -8,9 +8,6 @@ spec:
     tier: frontend
   ports:
   - protocol: TCP
-    port: 443
-    name: https
-  - protocol: TCP
     port: 80
     name: http
   type: LoadBalancer

@@ -6,7 +6,7 @@ metadata:
     environment: production
     tier: frontend
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: gcr.io/telefon-190611/frontend:9f17f26bdae44f7e26b3393968c99be111918468
+        image: gcr.io/trouw-192109/github-mathi123-trouw-frontend:b26a839e2962118e53ae202d4887152c299b2e23
         ports:
         - containerPort: 80

@@ -13,14 +13,6 @@ spec:
     spec:
       containers:
       - name: rest-api-container
-        image: gcr.io/telefon-190611/rest-api:ddaadcbccf0ad01e2cca762991f180bcec66fa2c
+        image: gcr.io/trouw-192109/github-mathi123-trouw-backend:20f61c2c956f1c46e0cdb3a509fe7a091e6a9d60
         ports:
         - containerPort: 3000
-        volumeMounts:
-          - name: files
-            mountPath: /usr/app/public/files
-      volumes:
-        - name: files
-          gcePersistentDisk:
-            pdName: telefon-files
-            fsType: ext4
