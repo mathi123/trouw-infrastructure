@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend2-service
+spec:
+  selector:
+    environment: production
+    tier: frontend2
+  ports:
+  - protocol: TCP
+    port: 80
+    name: http
+  type: LoadBalancer

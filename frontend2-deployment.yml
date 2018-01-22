@@ -1,20 +1,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend2-deployment
   labels:
     environment: production
-    tier: frontend
+    tier: frontend2
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         environment: production
-        tier: frontend
+        tier: frontend2
     spec:
       containers:
-      - name: frontend-container
-        image: gcr.io/trouw-192109/frontend-feest:2fb814a14ab2f93ad23737edb0d64ad5cef78eba
+      - name: frontend2-container
+        image: gcr.io/trouw-192109/frontend-receptie:2fb814a14ab2f93ad23737edb0d64ad5cef78eba
         ports:
         - containerPort: 80
